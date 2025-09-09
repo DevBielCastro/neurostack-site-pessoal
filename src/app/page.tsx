@@ -1,7 +1,9 @@
 import Hero from './components/Hero';
 import ProductsSection from './components/ProductsSection';
+import ServicesSection from './components/ServicesSection';
+import ProjectsSection from './components/ProjectsSection';
 import DevelopersSection from './components/DevelopersSection';
-import ResourcesSection from './components/ResourcesSection'; // 1. Importa a nova seção
+import ResourcesSection from './components/ResourcesSection';
 import GrowthSection from './components/GrowthSection';
 import PricingSection from './components/PricingSection';
 import CtaSection from './components/CtaSection';
@@ -13,8 +15,10 @@ export default function HomePage() {
       <main>
         <Hero />
         <ProductsSection />
+        <ServicesSection />
+        <ProjectsSection />
         <DevelopersSection />
-        <ResourcesSection /> {/* 2. Adiciona a nova seção na ordem correta */}
+        <ResourcesSection />
         <GrowthSection />
         <PricingSection />
         <CtaSection />
