@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // (CORRIGIDO) Adicionada a classe 'overflow-x-hidden' aqui para uma solução definitiva
+    // (CORRIGIDO) Adicionada a classe 'overflow-x-hidden' aqui para uma solução global e definitiva
     <html lang="pt-br" className="overflow-x-hidden">
-      <body className={`${montserrat.variable} ${openSans.variable} bg-ns-bg text-ns-text font-body overflow-x-hidden`}>
+      <body className={`${montserrat.variable} ${openSans.variable} bg-ns-bg text-ns-text font-body`}>
         <Header />
         {children}
       </body>

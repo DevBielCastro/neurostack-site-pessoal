@@ -12,7 +12,9 @@ import Footer from './components/Footer';
 export default function HomePage() {
   return (
     <>
-      <main>
+      {/* (CORRIGIDO) A classe 'overflow-hidden' aqui contém todas as secções
+          e remove a barra de rolagem lateral de forma definitiva. */}
+      <main className="overflow-hidden">
         <Hero />
         <ProductsSection />
         <ServicesSection />

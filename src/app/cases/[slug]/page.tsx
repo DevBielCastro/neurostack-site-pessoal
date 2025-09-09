@@ -1,6 +1,6 @@
 import { getCaseBySlug } from '@/app/lib/case-data';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, CheckCircle, Target, Zap, BarChart2, Briefcase, Bot, UserCheck } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Target, Zap, Briefcase, Bot } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -21,9 +21,19 @@ export default function CasePage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="bg-ns-bg text-white">
-      {/* Cabeçalho do Case */}
-      <header className="py-24 md:py-32 bg-ns-card/30 border-b border-ns-card">
-        <div className="container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Cabeçalho do Case com Imagem de Fundo */}
+      <header className="relative py-24 md:py-32 border-b border-ns-card overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={caseStudy.heroImage}
+            alt={`Imagem de fundo do case ${caseStudy.client}`}
+            fill
+            className="object-cover opacity-40" // (ALTERADO) Opacidade aumentada significativamente
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ns-bg via-ns-bg/80 to-ns-bg"></div>
+        </div>
+        <div className="container relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link href="/#projects" className="inline-flex items-center gap-2 text-ns-primary mb-6 hover:underline">
             <ArrowLeft size={16} /> Voltar para Projetos
           </Link>
@@ -44,7 +54,7 @@ export default function CasePage({ params }: { params: { slug: string } }) {
               <h2 className="text-3xl font-bold flex items-center gap-3 mt-12"><Zap className="text-ns-primary" /> A Solução</h2>
               <p className="text-ns-text/80">{caseStudy.solution}</p>
               
-              <h2 className="text-3xl font-bold flex items-center gap-3 mt-12"><BarChart2 className="text-ns-primary" /> O Resultado</h2>
+              <h2 className="text-3xl font-bold flex items-center gap-3 mt-12"><CheckCircle className="text-ns-primary" /> O Resultado</h2>
               <p className="text-ns-text/80">{caseStudy.result}</p>
             </div>
             
@@ -62,7 +72,7 @@ export default function CasePage({ params }: { params: { slug: string } }) {
               <ul className="space-y-2">
                 {caseStudy.services.map(service => (
                   <li key={service} className="flex items-center gap-2 text-ns-text/80">
-                    <CheckCircle size={16} className="text-ns-primary" />
+                    <CheckCircle size={16} className="text-ns-primary flex-shrink-0" />
                     <span>{service}</span>
                   </li>
                 ))}
