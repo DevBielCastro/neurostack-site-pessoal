@@ -1,25 +1,50 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-// --- Configuração da Rede Neural com seus Ícones ---
+// --- Configuração com posições mais orgânicas ---
 const SOLUTIONS = [
-  { text: "Venda enquanto dorme", icon: "/assets/icon-ecommerce.png", x: 250, y: 30 },
-  { text: "Alcance um novo público", icon: "/assets/icon-publico.png", x: 430, y: 150 },
-  { text: "Processos Automatizados", icon: "/assets/icon-automacao.png", x: 420, y: 350 },
-  { text: "Decisões baseadas em IA", icon: "/assets/icon-ia.png", x: 250, y: 470 },
-  { text: "Presença Digital Marcante", icon: "/assets/icon-presenca-digital.png", x: 80, y: 350 },
-  { text: "Consultoria Estratégica", icon: "/assets/icon-consultoria.png", x: 70, y: 150 },
-  { text: "Topo do Google", icon: "/assets/icon-seo.png", x: 150, y: 100 },
-  { text: "Sistemas Sob Medida", icon: "/assets/icon-sistemas.png", x: 350, y: 100 },
+  { text: "Venda enquanto dorme", icon: "/assets/icon-ecommerce.png", x: 250, y: 40 },
+  { text: "Alcance um novo público", icon: "/assets/icon-publico.png", x: 440, y: 160 },
+  { text: "Processos Automatizados", icon: "/assets/icon-automacao.png", x: 410, y: 340 },
+  { text: "Decisões baseadas em IA", icon: "/assets/icon-ia.png", x: 250, y: 460 },
+  { text: "Presença Digital Marcante", icon: "/assets/icon-presenca-digital.png", x: 90, y: 340 },
+  { text: "Consultoria Estratégica", icon: "/assets/icon-consultoria.png", x: 60, y: 160 },
+  { text: "Topo do Google", icon: "/assets/icon-seo.png", x: 140, y: 110 },
+  { text: "Sistemas Sob Medida", icon: "/assets/icon-sistemas.png", x: 360, y: 110 },
 ];
+
+// --- Função para gerar um caminho mais sinuoso ---
+const generateSinuousPath = (start: { x: number; y: number }, end: { x: number; y: number }) => {
+  const dx = end.x - start.x;
+  const dy = end.y - start.y;
+  const length = Math.sqrt(dx * dx + dy * dy);
+  const px = -dy / length;
+  const py = dx / length;
+  const jitter = length * 0.45;
+
+  const cp1x = start.x + dx * 0.3 + (Math.random() - 0.5) * jitter * px;
+  const cp1y = start.y + dy * 0.3 + (Math.random() - 0.5) * jitter * py;
+  
+  const cp2x = start.x + dx * 0.7 - (Math.random() - 0.5) * jitter * px;
+  const cp2y = start.y + dy * 0.7 - (Math.random() - 0.5) * jitter * py;
+
+  return `M ${start.x} ${start.y} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${end.x} ${end.y}`;
+};
+
 
 // --- Componente principal ---
 export default function HeroScene() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const center = { x: 250, y: 250 };
+
+  const sinuousPaths = useMemo(() => 
+    SOLUTIONS.map(solution => generateSinuousPath(center, { x: solution.x, y: solution.y })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   return (
     <div className="relative w-full max-w-[500px] aspect-square mx-auto">
@@ -58,26 +83,31 @@ export default function HeroScene() {
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+            {/* (NOVO) Filtro de brilho para a logo */}
+            <filter id="logo-glow">
+                <feGaussianBlur stdDeviation="5" result="coloredBlur" />
+                <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
           </defs>
 
           {/* --- Conexões --- */}
           <g>
-            {SOLUTIONS.map((_, index) => {
-              const { x, y } = SOLUTIONS[index];
-              return (
-                <motion.path
-                  key={`line-${index}`}
-                  d={`M ${center.x} ${center.y} C ${center.x} ${center.y} ${x} ${y} ${x} ${y}`}
-                  strokeWidth="1.5"
-                  fill="none"
-                  stroke={hoveredIndex === index ? "url(#line-gradient)" : "rgba(0, 174, 239, 0.2)"}
-                  style={{ filter: hoveredIndex === index ? "url(#glow)" : "none" }}
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                />
-              );
-            })}
+            {SOLUTIONS.map((_, index) => (
+              <motion.path
+                key={`line-${index}`}
+                d={sinuousPaths[index]}
+                strokeWidth="1.5"
+                fill="none"
+                stroke={hoveredIndex === index ? "url(#line-gradient)" : "rgba(0, 174, 239, 0.2)"}
+                style={{ filter: hoveredIndex === index ? "url(#glow)" : "none" }}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+              />
+            ))}
           </g>
 
           {/* --- Nós de Solução (seus ícones) e Logo --- */}
@@ -92,10 +122,9 @@ export default function HeroScene() {
                   className="cursor-pointer"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  whileHover={{ scale: 1.2, z: 10 }} // (ALTERADO) Efeito de crescimento
+                  whileHover={{ scale: 1.2, z: 10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
-                  {/* Quadrado com pontas arredondadas */}
                   <motion.rect
                     x={x - 24}
                     y={y - 24}
@@ -107,14 +136,11 @@ export default function HeroScene() {
                     strokeWidth="1"
                     strokeOpacity="0.5"
                   />
-                  {/* Sua imagem de ícone */}
                   <foreignObject x={x - 20} y={y - 20} width="40" height="40">
                     <div className="flex items-center justify-center w-full h-full">
                       <Image src={solution.icon} width={28} height={28} alt={solution.text} />
                     </div>
                   </foreignObject>
-                  
-                  {/* (NOVO) Texto que aparece abaixo do ícone no hover */}
                   <AnimatePresence>
                   {hoveredIndex === index && (
                      <foreignObject x={x-75} y={y+30} width="150" height="40">
@@ -131,27 +157,42 @@ export default function HeroScene() {
                      </foreignObject>
                   )}
                   </AnimatePresence>
-
                 </motion.g>
               );
             })}
 
-            {/* Logo Central */}
-            <foreignObject x={center.x - 40} y={center.y - 40} width="80" height="80">
-              <motion.div
-                className="flex items-center justify-center w-full h-full bg-ns-bg p-3 rounded-full shadow-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 }}
-              >
-                <Image src="/assets/logo.ico" width={50} height={50} alt="NeuroStack Logo" />
-              </motion.div>
-            </foreignObject>
+            {/* (ALTERADO) Logo Central com Efeito de Pulsação Circular */}
+            <g>
+                <motion.circle
+                    cx={center.x}
+                    cy={center.y}
+                    fill="#00AEEF"
+                    style={{ filter: 'url(#logo-glow)' }}
+                    animate={{ 
+                        r: [35, 45, 35],
+                        opacity: [0, 0.3, 0],
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+                <foreignObject x={center.x - 45} y={center.y - 45} width="90" height="90">
+                  <motion.div
+                    className="flex items-center justify-center w-full h-full bg-ns-bg p-3 rounded-full shadow-lg"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 }}
+                  >
+                    <Image src="/assets/logo.ico" width="60" height="60" alt="NeuroStack Logo" />
+                  </motion.div>
+                </foreignObject>
+            </g>
           </g>
         </svg>
       </div>
-
-      {/* --- Texto Interativo foi REMOVIDO daqui --- */}
     </div>
   );
 }
