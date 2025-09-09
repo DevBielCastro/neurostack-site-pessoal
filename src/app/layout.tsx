@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header"; // 1. Importe o novo componente
+import Header from "./components/Header";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -26,9 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body className={`${montserrat.variable} ${openSans.variable} bg-ns-bg text-ns-text font-body`}>
-        <Header /> {/* 2. Adicione o Header aqui */}
+    // (CORRIGIDO) Adicionada a classe 'overflow-x-hidden' aqui para uma solução definitiva
+    <html lang="pt-br" className="overflow-x-hidden">
+      <body className={`${montserrat.variable} ${openSans.variable} bg-ns-bg text-ns-text font-body overflow-x-hidden`}>
+        <Header />
         {children}
       </body>
     </html>
