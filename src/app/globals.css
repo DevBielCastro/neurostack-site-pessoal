@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ns-bg text-ns-text font-body overflow-x-hidden; /* <<-- CORREÇÃO APLICADA AQUI */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
