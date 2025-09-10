@@ -1,56 +1,66 @@
 "use client";
 
 import React from "react";
-import Image from "next/image"; // Usando o componente de imagem otimizado do Next.js
+import Image from "next/image";
+import { CheckCircle } from "lucide-react";
 
 export default function GrowthSection() {
   return (
     <section id="growth" className="relative bg-ns-bg py-20 md:py-32 overflow-hidden">
-      {/* (NOVO) Elementos decorativos de brilho na camada do meio */}
-      <div className="absolute top-1/4 left-0 w-72 h-72 bg-ns-primary/10 rounded-full blur-3xl pointer-events-none z-10"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-ns-primary/5 rounded-full blur-3xl pointer-events-none z-10"></div>
+      {/* Elementos decorativos de fundo */}
+      <div className="absolute top-1/4 -left-20 w-72 h-72 bg-ns-primary/10 rounded-full blur-3xl pointer-events-none z-10"></div>
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-ns-primary/5 rounded-full blur-3xl pointer-events-none z-10"></div>
 
-      <div className="container grid md:grid-cols-2 gap-8 md:gap-16 items-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="container grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
         
-        {/* Coluna de Texto (Esquerda) - Na camada da frente */}
-        <div className="relative z-20 text-center md:text-left">
-          <p className="font-bold text-lg md:text-xl text-ns-primary mb-4 tracking-wider">
-            EXPANSÃO SEM FRONTEIRAS
-          </p>
+        {/* Coluna de Texto (Esquerda) */}
+        <div className="relative z-20 text-center lg:text-left">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-            Sua Presença Digital, <span className="text-ns-primary">Agora Global</span>.
+            Do site institucional ao produto SaaS — <span className="text-ns-primary">entregamos soluções que vendem.</span>
           </h2>
-          <p className="text-lg md:text-xl text-ns-text/90 mb-10 leading-relaxed">
-            Nossas soluções são a ponte entre seu negócio local e o mercado mundial. 
-            Com tecnologia de ponta, posicionamos sua marca para ser vista e consumida 
-            em qualquer lugar do planeta.
+          <p className="text-lg md:text-xl text-ns-text/90 mb-8 leading-relaxed">
+            Na Neurostack desenvolvemos soluções digitais completas: sites institucionais e lojas, plataformas sob medida, o Garçom Digital para foodservice e até jogos indie. Entregamos com agilidade, testes reais com clientes-piloto e acompanhamento para você escalar com segurança. Se prefere resultado comprovado a promessas vazias, fale com a gente.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-            <div className="bg-gradient-to-r from-ns-primary/10 to-ns-primary/5 backdrop-blur-sm border border-ns-primary/30 py-4 px-6 rounded-xl flex-1 transition-all duration-300 hover:border-ns-primary/60">
-              <p className="text-3xl md:text-4xl font-bold text-white mb-1">+900</p>
-              <p className="text-ns-text/90">Empresas Impulsionadas</p>
-            </div>
-            <div className="bg-gradient-to-r from-ns-primary/10 to-ns-primary/5 backdrop-blur-sm border border-ns-primary/30 py-4 px-6 rounded-xl flex-1 transition-all duration-300 hover:border-ns-primary/60">
-              <p className="text-3xl md:text-4xl font-bold text-white mb-1">+60</p>
-              <p className="text-ns-text/90">Países Alcançados</p>
-            </div>
+          <ul className="space-y-4 mb-10 text-left">
+            <li className="flex items-center gap-3">
+                <CheckCircle className="w-6 h-6 text-ns-primary flex-shrink-0" />
+                <span className="text-ns-text">Desenvolvimento web e landing pages de alta conversão.</span>
+            </li>
+            <li className="flex items-center gap-3">
+                <CheckCircle className="w-6 h-6 text-ns-primary flex-shrink-0" />
+                <span className="text-ns-text">Produtos SaaS e integrações (WhatsApp, PDV, gateways de pagamento).</span>
+            </li>
+             <li className="flex items-center gap-3">
+                <CheckCircle className="w-6 h-6 text-ns-primary flex-shrink-0" />
+                <span className="text-ns-text">Games indie e experiências digitais criativas.</span>
+            </li>
+          </ul>
+
+          <div className="flex flex-col items-center lg:items-start">
+            <a
+                href="#contact"
+                className="inline-block bg-ns-primary text-ns-bg font-bold py-4 px-10 rounded-lg text-lg transition-transform duration-300 hover:scale-105"
+            >
+                Fale com um especialista
+            </a>
+            <p className="mt-4 text-sm text-ns-primary font-semibold bg-ns-primary/10 px-3 py-1 rounded-full">
+                Piloto em 48h
+            </p>
           </div>
         </div>
 
-        {/* Coluna da Imagem (Direita) - Na camada de trás */}
-        <div className="absolute top-0 right-0 h-full w-full md:w-1/2 z-0">
+        {/* Coluna da Imagem (Direita) */}
+        <div className="hidden lg:block absolute top-0 right-0 h-full w-2/3 z-0 transform lg:translate-x-1/4">
           <Image
             src="/assets/plexus-globe-background.png"
             alt="Globo digital representando a expansão global da Neurostack"
             fill
             className="object-contain opacity-20 md:opacity-30"
-            priority
+            sizes="66vw"
           />
-          {/* Gradiente para fundir a imagem com o fundo */}
           <div className="absolute inset-0 bg-gradient-to-r from-ns-bg via-ns-bg/50 to-transparent"></div>
         </div>
-
       </div>
     </section>
   );

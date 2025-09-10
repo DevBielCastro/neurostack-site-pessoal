@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /* (CORRIGIDO) Regra global para garantir contenção e remover a barra de rolagem lateral */
+  /* Regra global para garantir contenção e remover a barra de rolagem lateral */
   html, body {
     @apply w-full max-w-full overflow-x-hidden;
   }
@@ -15,4 +15,25 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
+}
+
+/* --- (NOVO) Estilos Globais para o Google Translate --- */
+
+/* Esconder a toolbar do Google Translate */
+.goog-te-banner-frame, .goog-te-ftab-frame, .goog-te-menu-frame {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+
+/* Esconder o texto "Traduzir" e setas extras do seletor */
+.goog-te-menu-value span:first-child {
+  display: none;
+}
+.goog-te-menu-value span:nth-child(3) {
+  display: none;
+}
+.goog-te-menu-value span:nth-child(5) {
+  display: none;
 }

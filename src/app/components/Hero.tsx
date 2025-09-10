@@ -1,17 +1,15 @@
-"use client";
+'use client';
 
 import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-// Fallback estático
 const StaticFallback = () => (
   <div className="w-full h-[400px] bg-ns-card rounded-lg border border-white/10 flex items-center justify-center">
-    <p className="text-ns-text/50">A carregar visualização...</p>
+    <p className="text-ns-text/50">Carregando visualização...</p>
   </div>
 );
 
-// Importação dinâmica do componente 3D
 const HeroScene = dynamic(() => import('./HeroScene'), {
   ssr: false,
   loading: () => <StaticFallback />,
@@ -20,12 +18,11 @@ const HeroScene = dynamic(() => import('./HeroScene'), {
 export default function Hero() {
   return (
     <section className="container py-20 md:py-24 px-4 sm:px-6 lg:px-8">
-      {/* (ALTERADO) O grid agora passa para 2 colunas apenas em ecrãs grandes (lg) */}
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         
-        {/* Coluna de Texto */}
-        <div className="text-center lg:text-left">
-          <motion.h1 
+        {/* (CORRIGIDO) Adicionadas as classes 'relative' e 'z-10' para garantir que esta coluna fique POR CIMA */}
+        <div className="text-center lg:text-left relative z-10">
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -34,7 +31,7 @@ export default function Hero() {
             Criamos soluções digitais que <span className="text-ns-primary">transformam</span> o seu negócio
           </motion.h1>
           
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -43,7 +40,7 @@ export default function Hero() {
             Sites, sistemas e soluções de software que unem design inovador com tecnologia de ponta.
           </motion.p>
           
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -58,8 +55,8 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Coluna Visual (Animação) */}
-        <div className="w-full h-[400px] lg:h-[500px]">
+        {/* (CORRIGIDO) Adicionadas as classes 'relative' e 'z-0' para garantir que esta coluna fique POR TRÁS */}
+        <div className="w-full h-[400px] lg:h-[500px] relative z-0">
           <Suspense fallback={<StaticFallback />}>
             <HeroScene />
           </Suspense>
