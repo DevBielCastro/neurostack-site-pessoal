@@ -31,7 +31,7 @@ const teamMembers = [
     videoSrc: "/assets/social-Midia-w-moura.mp4",
     valueProposition: "Planejamento de marketing e audiovisual para tornar seu negócio mais visto. Criamos a narrativa que conecta sua marca ao público certo, gerando engajamento e resultados concretos.",
     specialties: ["SEO", "Social Media", "Content Strategy", "Analytics"],
-    bio: "Texto genérico sobre W. Moura. Detalhe aqui a sua expertise em estratégias de marketing digital, criação de conteúdo e como você utiliza dados para aumentar a visibilidade e o engajamento dos clientes."
+    bio: "W. Moura é especialista em marketing e criatividade, responsável por conceber estratégias que convertem audiência em clientes. Combina branding, gestão de tráfego, social media e copywriting com técnicas de lançamento digital para maximizar alcance e retorno. Também atua como editor de vídeo, produzindo conteúdos pensados para performance e engajamento em canais pagas e orgânicos. Seu trabalho une criatividade e tática: campanha com mensagem certeira, direcionamento preciso e mensuração para gerar resultados reais."
   },
   {
     name: "Abraão Lucas",
