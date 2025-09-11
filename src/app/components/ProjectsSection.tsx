@@ -3,10 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-// --- Dados dos Projetos com Extensões Corrigidas ---
+// (MODIFICADO) Estrutura de dados agora inclui status e liveUrl opcional
 const projects = [
   {
     title: "Website Institucional – Gabriel Mário Advogados",
@@ -14,7 +14,8 @@ const projects = [
     tags: ["Website", "Identidade Digital"],
     liveUrl: "https://www.gabrielmarioadv.com.br/",
     caseUrl: "/cases/gabriel-mario-advogados", 
-    thumbnail: "/assets/project-gabriel-mario.jpg", // Extensão corrigida
+    thumbnail: "/assets/project-gabriel-mario.jpg",
+    status: null,
   },
   {
     title: "Website Profissional – Roberlanio Advogados",
@@ -22,7 +23,8 @@ const projects = [
     tags: ["Website", "SEO Local"],
     liveUrl: "https://www.roberlanioadv.com.br/",
     caseUrl: "/cases/roberlanio-advogados",
-    thumbnail: "/assets/project-roberlanio.jpg", // Extensão corrigida
+    thumbnail: "/assets/project-roberlanio.jpg",
+    status: null,
   },
   {
     title: "Portal Educacional – Supletivo JP",
@@ -30,15 +32,17 @@ const projects = [
     tags: ["Website", "Conversão"],
     liveUrl: "https://www.supletivojp.com.br/",
     caseUrl: "/cases/supletivo-jp",
-    thumbnail: "/assets/project-supletivo-jp.jpg", // Extensão corrigida
+    thumbnail: "/assets/project-supletivo-jp.jpg",
+    status: null,
   },
   {
     title: "Garçom Digital — Cardápios & Gestão para Restaurantes",
     summary: "SaaS completo: cardápios online, pedidos, gestão financeira e painel administrativo.",
     tags: ["Produto", "SaaS", "FoodTech"],
-    liveUrl: "#", 
+    liveUrl: null, // (CORRIGIDO) liveUrl como null remove o botão "Ver Site"
     caseUrl: "/cases/garcom-digital",
-    thumbnail: "/assets/project-garcom-digital.jpg", // Extensão corrigida
+    thumbnail: "/assets/project-garcom-digital.jpg",
+    status: "Em Desenvolvimento", // (NOVO) Adicionado o status
   },
 ];
 
@@ -85,15 +89,27 @@ export default function ProjectsSection() {
               </div>
               
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="font-bold text-xl text-white mb-3">{project.title}</h3>
+                {/* (NOVO) Container para o título e o selo de status */}
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="font-bold text-xl text-white">{project.title}</h3>
+                  {project.status && (
+                    <span className="bg-ns-primary/10 text-ns-primary text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
+
                 <p className="text-ns-text/80 mb-6 flex-grow">{project.summary}</p>
                 <div className="flex items-center gap-4 mt-auto">
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="bg-ns-primary text-ns-bg font-bold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity">
-                    Ver Site
-                  </a>
+                  {/* (CORRIGIDO) O botão "Ver Site" só aparece se 'liveUrl' existir */}
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="bg-ns-primary text-ns-bg font-bold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity">
+                      Ver Site
+                    </a>
+                  )}
                    <Link href={project.caseUrl} className="font-semibold text-white group-hover:text-ns-primary transition-colors flex items-center gap-2">
-                    Ver Case <ArrowRight size={16} />
-                  </Link>
+                     Ver Case <ArrowRight size={16} />
+                   </Link>
                 </div>
               </div>
             </motion.div>

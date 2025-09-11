@@ -164,6 +164,17 @@ export default function PricingSection() {
   const [activeTab, setActiveTab] = useState<Category>("Site Institucional");
   const activeCategoryData = pricingData[activeTab];
 
+  // (NOVO) Função para gerar o link do WhatsApp com a mensagem personalizada
+  const generateWhatsAppLink = (product: string, plan: string) => {
+    const phoneNumber = "558391533883";
+    const message = `Olá! Tenho interesse no serviço de ${product}, plano ${plan}. Gostaria de agendar um diagnóstico.`;
+    
+    // Codifica a mensagem para ser usada em uma URL de forma segura
+    const encodedMessage = encodeURIComponent(message);
+    
+    return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  };
+
   return (
     <section id="pricing" className="bg-ns-card/30 py-20 md:py-32">
       <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -177,7 +188,7 @@ export default function PricingSection() {
           </p>
           <div className="mt-4">
             <a
-              href="https://wa.me/558391533883"
+              href="https://wa.me/558391533883?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito."
               className="inline-block bg-ns-primary text-ns-bg font-bold py-3 px-6 rounded-lg shadow hover:opacity-95"
               aria-label="Agende diagnóstico gratuito"
             >
@@ -253,8 +264,9 @@ export default function PricingSection() {
                   )}
                 </div>
 
+                {/* (MODIFICADO) O href agora é gerado dinamicamente */}
                 <a
-                  href="https://wa.me/558391533883"
+                  href={generateWhatsAppLink(activeTab, plan.name)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full text-center font-bold py-3 px-6 rounded-lg transition-all duration-300 ${
