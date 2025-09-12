@@ -49,7 +49,7 @@ const teamMembers = [
     videoSrc: "/assets/dev-janderson-gomes.mp4",
     valueProposition: "Da interface ao servidor, oferecemos soluções completas. Unimos design e lógica para entregar produtos digitais coesos, funcionais e prontos para o mercado.",
     specialties: ["Full Stack Development", "Project Management", "System Integration", "Technical Consulting"],
-    bio: "Texto genérico sobre Janderson Gomes. Descreva a sua capacidade de atuar em todas as frentes do desenvolvimento, conectando o front-end e o back-end para criar soluções digitais completas e integradas."
+    bio: "Janderson Gomes Felisberto é desenvolvedor Full Stack com sólida experiência em Java, Python e tecnologias web (HTML, CSS, JavaScript). Especialista em desenvolvimento orientado a objetos, ele projeta e implementa soluções escaláveis e de alto desempenho, sempre com foco na qualidade do código e na experiência do usuário. Apaixonado por tecnologia, Janderson busca evolução contínua das suas habilidades para entregar aplicações funcionais, modernas e prontas para produção."
   },
 ];
 
