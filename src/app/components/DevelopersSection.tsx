@@ -39,7 +39,7 @@ const teamMembers = [
     videoSrc: "/assets/dev-abraao-lucas.mp4",
     valueProposition: "Estruturamos a espinha dorsal do seu projeto com bancos de dados eficientes e APIs seguras. A performance e a integridade dos seus dados são nossa prioridade máxima.",
     specialties: ["Database Architecture", "API Development", "Cloud Services", "Security"],
-    bio: "Texto genérico sobre Abraão Lucas. Explique aqui o seu foco em construir sistemas de back-end seguros e eficientes, garantindo que a infraestrutura por trás das aplicações seja robusta e escalável."
+    bio: "Abraão Lucas é Back-End Developer com foco em projetar e operar a espinha dorsal técnica de aplicações críticas. Sua atuação cobre arquitetura de bancos de dados, desenvolvimento de APIs, serviços em nuvem e práticas de segurança, sempre buscando escalabilidade, observabilidade e baixo custo operacional. Abraão garante que dados e serviços permaneçam íntegros e performáticos em produção — projetando modelos de dados eficientes, APIs bem definidas e pipelines de deploy confiáveis. Em suma: ele transforma requisitos complexos em infraestrutura robusta e mantível, assegurando que a plataforma suporte crescimento e uso real sem perda de desempenho."
   },
   {
     name: "Janderson Gomes",
