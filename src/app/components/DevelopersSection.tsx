@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Briefcase, Palette, Megaphone, Server, Layers, Play, Pause, Volume2, VolumeX, ArrowRight, X } from 'lucide-react';
 
-// (ALTERAÇÃO) Adicionada a propriedade 'bio' para o texto do modal
 const teamMembers = [
   {
     name: "Gabriel Castro",
@@ -58,7 +57,6 @@ type VideoPlayerProps = {
   isInView: boolean;
 };
 
-// Componente para controle de vídeo
 const VideoPlayer = ({ src, isInView }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -127,7 +125,6 @@ const VideoPlayer = ({ src, isInView }: VideoPlayerProps) => {
   );
 };
 
-// (NOVO) Componente para o Modal de Biografia
 const BioModal = ({ member, onClose }: { member: typeof teamMembers[0], onClose: () => void }) => {
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -176,7 +173,6 @@ const BioModal = ({ member, onClose }: { member: typeof teamMembers[0], onClose:
     </motion.div>
   );
 };
-
 
 const itemVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -242,9 +238,10 @@ export default function DevelopersSection() {
                         <member.IconComponent size={28} className="text-ns-primary" />
                       </div>
                     </div>
-                    <div className={`grid grid-cols-1 md:grid-cols-2 items-center gap-10 lg:gap-16 ${index % 2 !== 0 ? 'md:direction-rtl' : ''}`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 lg:gap-16">
                       <motion.div 
-                        className={`text-center md:text-left ${index % 2 !== 0 ? 'md:order-2 md:pr-8' : 'md:pl-8'}`}
+                        // (CORRIGIDO) Lógica de alinhamento e espaçamento ajustada para criar mais espaço
+                        className={`text-center ${ index % 2 !== 0 ? 'md:order-2 md:text-left md:pl-24' : 'md:order-1 md:text-right md:pr-24' }`}
                         initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.7, delay: 0.2 }}
@@ -257,7 +254,7 @@ export default function DevelopersSection() {
                         <p className="text-ns-text/80 text-lg leading-relaxed mb-6">{member.valueProposition}</p>
                         <div className="mb-8">
                           <h4 className="text-white font-semibold mb-3">Especialidades:</h4>
-                          <div className="flex flex-wrap gap-2">
+                          <div className={`flex flex-wrap gap-2 ${ index % 2 !== 0 ? 'justify-center md:justify-start' : 'justify-center md:justify-end' }`}>
                             {member.specialties.map((specialty, i) => (
                               <span 
                                 key={i}
@@ -269,7 +266,6 @@ export default function DevelopersSection() {
                           </div>
                         </div>
                         
-                        {/* (ALTERAÇÃO) Botão unificado que abre o modal */}
                         <motion.button
                           onClick={() => setModalMember(member)}
                           whileHover={{ scale: 1.05 }}
@@ -281,7 +277,7 @@ export default function DevelopersSection() {
                         </motion.button>
                       </motion.div>
                       <motion.div 
-                        className={`relative ${index % 2 !== 0 ? 'md:order-1' : ''}`}
+                        className={`relative ${ index % 2 !== 0 ? 'md:order-1' : 'md:order-2' }`}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.7, delay: 0.4 }}
@@ -318,7 +314,6 @@ export default function DevelopersSection() {
         </div>
       </section>
 
-      {/* (NOVO) Renderização do modal fora da seção principal */}
       <AnimatePresence>
         {modalMember && <BioModal member={modalMember} onClose={() => setModalMember(null)} />}
       </AnimatePresence>
