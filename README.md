@@ -1,93 +1,85 @@
 # 🌐 Site Institucional da Neurostack
 
-# NeuroStack — Site Institucional
+# Site Institucional - NeuroStack
 
-**TL;DR:** Site institucional e vitrine de serviços da NeuroStack, focado em performance, SEO e experiência do usuário.
+Website corporativo e vitrine de serviços da NeuroStack, desenvolvido com Next.js, TypeScript e Tailwind CSS para máxima performance e uma experiência de usuário moderna.
 
-| **Demo** | **Repositório** |
-|----------|---|
-| 🌐 [neurostack.com.br](https://www.neurostack.com.br) | 🔗 [DevBielCastro/neurostack-site-pessoal](https://github.com/DevBielCastro/neurostack-site-pessoal) |
+<div align="center">
 
----
+![Next.js](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## 🛠️ Stack de Tecnologias
+</div>
 
-- **Framework:** Next.js 14 (App Router)
-- **Linguagem:** TypeScript
-- **Estilização:** Tailwind CSS
-- **Animações:** Framer Motion
-- **Internacionalização (i18n):** `next-intl`
-- **Deploy:** Vercel
+| **Deploy (Demo)** | **Repositório** |
+|---|---|
+| [cite_start]🌐 [neurostack.com.br](https://www.neurostack.com.br/) [cite: 35] | [cite_start]🔗 [GitHub](https://github.com/DevBielCastro/neurostack-site-pessoal) [cite: 34] |
 
 ---
 
-## 🎯 O Problema Resolvido
+## 🎯 Sobre o Projeto
 
-A NeuroStack precisava de uma vitrine corporativa digital que fosse capaz de:
-1.  Comunicar claramente seus serviços, portfólio e proposta de valor.
-2.  Manter um altíssimo padrão de performance e SEO para garantir boa visibilidade orgânica.
-3.  Oferecer suporte a múltiplos idiomas (Português e Inglês) de forma nativa.
-4.  Ser facilmente escalável para futuras adições, como um blog.
+O objetivo deste projeto foi criar uma vitrine digital completa para a NeuroStack. [cite_start]A necessidade era desenvolver um website que não apenas apresentasse os serviços e o portfólio da empresa, mas que também servisse como uma ferramenta eficaz para a captação de clientes[cite: 34].
+
+[cite_start]O resultado é uma plataforma moderna, rápida e totalmente responsiva, que comunica a identidade visual e os valores da marca de forma clara e profissional[cite: 34].
 
 ---
 
-## ✨ A Solução Implementada
+## ✨ Tecnologias Utilizadas
 
-Para atender a esses requisitos, o site foi construído com uma arquitetura moderna e focada em componentes.
+[cite_start]Este projeto foi construído utilizando as seguintes tecnologias de ponta[cite: 36]:
 
-- **Arquitetura:** O projeto utiliza o App Router do Next.js, facilitando a organização de rotas e o uso de Server Components para performance.
-- **Internacionalização:** A biblioteca `next-intl` foi integrada para gerenciar as traduções, permitindo que todo o conteúdo seja exibido dinamicamente no idioma escolhido pelo usuário.
-- **Microinterações:** Animações sutis foram adicionadas com `framer-motion` para melhorar a experiência do usuário sem penalizar o tempo de carregamento da página.
-- **CI/CD:** O deploy é automatizado através da integração nativa do repositório com a Vercel, garantindo que cada `push` para a branch `main` atualize o site em produção de forma segura e eficiente.
+* **Next.js:** Framework React para construção de aplicações web de alta performance.
+* **React:** Biblioteca para criar interfaces de usuário componentizadas e interativas.
+* **TypeScript:** Adiciona tipagem estática ao JavaScript, aumentando a segurança e a manutenibilidade do código.
+* **Tailwind CSS:** Framework CSS utility-first para estilização rápida e responsiva.
+* **Framer Motion:** Para animações e microinterações fluidas.
+* **Vercel:** Plataforma de deploy otimizada para projetos Next.js, com integração contínua (CI/CD).
 
 ---
 
-## 🚀 Rodando o Projeto Localmente
+## 🚀 Funcionalidades
 
-Siga os passos abaixo para executar o projeto em seu ambiente de desenvolvimento.
+* [cite_start]**Design Totalmente Responsivo:** Experiência de usuário consistente em desktops, tablets e celulares[cite: 34].
+* **Arquitetura Baseada em Componentes:** Código limpo e reutilizável.
+* **Otimizado para SEO:** Estrutura semântica e boas práticas para melhor rankeamento em buscadores.
+* **Performance Elevada:** Carregamento rápido graças à otimização de imagens e estratégias de renderização do Next.js.
 
-**1. Clone o repositório:**
-```bash
-git clone [https://github.com/DevBielCastro/neurostack-site-pessoal.git](https://github.com/DevBielCastro/neurostack-site-pessoal.git)
-cd neurostack-site-pessoal
-2. Instale as dependências:
+---
 
-Bash
+## ⚙️ Rodando o Projeto Localmente
 
-npm install
-# ou
-pnpm install
-3. Crie o arquivo de variáveis de ambiente:
-Copie o arquivo .env.example para um novo arquivo chamado .env.local e preencha as variáveis, se necessário.
+Para executar este projeto em seu ambiente de desenvolvimento, siga os passos abaixo:
 
-4. Execute o servidor de desenvolvimento:
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/DevBielCastro/neurostack-site-pessoal.git](https://github.com/DevBielCastro/neurostack-site-pessoal.git)
+    ```
 
-Bash
+2.  **Navegue até a pasta do projeto:**
+    ```bash
+    cd neurostack-site-pessoal
+    ```
 
-npm run dev
-# ou
-pnpm dev
-Abra http://localhost:3000 no seu navegador para ver o resultado.
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
-Scripts Úteis
-npm run dev: Inicia o servidor em modo de desenvolvimento.
+4.  **Execute o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
 
-npm run build: Compila o projeto para produção.
+5.  Abra `http://localhost:3000` no seu navegador.
 
-npm run start: Inicia um servidor de produção após o build.
+---
 
-npm run lint: Executa o linter para verificar a qualidade do código.
+## 📫 Contato
 
-🗺️ Roadmap de Melhorias
-[ ] Implementar SEO avançado com structured data (JSON-LD).
+**Gabriel Castro**
 
-[ ] Adicionar um blog integrado com um CMS Headless (ex: Strapi, Sanity).
-
-[ ] Escrever testes End-to-End (E2E) com Cypress para garantir a estabilidade das funcionalidades críticas.
-
-📫 Contato
-Gabriel Castro
-
-Email: gabriel.castrogt10@gmail.com
-
-LinkedIn: linkedin.com/in/gabriel-castro-9a9745209
+* [cite_start]**Email:** gabriel.castrogt10@gmail.com [cite: 2]
+* **LinkedIn:** [linkedin.com/in/gabriel-castro-9a9745209](https://www.linkedin.com/in/gabriel-castro-9a9745209/)
