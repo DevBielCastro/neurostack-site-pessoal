@@ -1,63 +1,93 @@
 # 🌐 Site Institucional da Neurostack
 
-> Website oficial e em produção da **Neurostack**, minha startup de tecnologia. O projeto foi desenvolvido para ser o cartão de visitas digital da empresa, apresentando nossos serviços, portfólio e visão, com foco em uma experiência de usuário moderna e fluida.
+# NeuroStack — Site Institucional
 
-[![Ver Projeto Online](https://img.shields.io/badge/Ver_Site_Oficial-007BFF?style=for-the-badge&logo=rocket)](https://www.neurostack.com.br/)
+**TL;DR:** Site institucional e vitrine de serviços da NeuroStack, focado em performance, SEO e experiência do usuário.
 
----
-
-### ✨ Destaques e Funcionalidades
-
--   **Design Moderno e Responsivo:** Interface profissional e totalmente adaptável a desktops, tablets e smartphones.
--   **Animações e Microinterações:** Utilização da biblioteca `Framer Motion` para criar uma navegação fluida e engajadora.
--   **Internacionalização (i18n):** Suporte a múltiplos idiomas (Português e Inglês) para alcançar um público global, implementado com `next-intl`.
--   **Estrutura de Componentes:** Código organizado e escalável seguindo as melhores práticas do React.
--   **Apresentação de Serviços:** Seções dedicadas para detalhar as soluções oferecidas pela Neurostack.
+| **Demo** | **Repositório** |
+|----------|---|
+| 🌐 [neurostack.com.br](https://www.neurostack.com.br) | 🔗 [DevBielCastro/neurostack-site-pessoal](https://github.com/DevBielCastro/neurostack-site-pessoal) |
 
 ---
 
-### 🛠️ Tecnologias Utilizadas
+## 🛠️ Stack de Tecnologias
 
-| Categoria      | Tecnologias                                                    |
-| -------------- | -------------------------------------------------------------- |
-| **Framework** | `Next.js 14`, `React`, `TypeScript`                          |
-| **Estilização** | `Tailwind CSS`                                                 |
-| **Animações** | `Framer Motion`                                                |
-| **i18n** | `next-intl`                                                    |
-| **Deploy** | `Vercel`                                                       |
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,framer,vercel&theme=dark" />
-</p>
+- **Framework:** Next.js 14 (App Router)
+- **Linguagem:** TypeScript
+- **Estilização:** Tailwind CSS
+- **Animações:** Framer Motion
+- **Internacionalização (i18n):** `next-intl`
+- **Deploy:** Vercel
 
 ---
 
-### 🚀 Como Executar o Projeto Localmente
+## 🎯 O Problema Resolvido
 
+A NeuroStack precisava de uma vitrine corporativa digital que fosse capaz de:
+1.  Comunicar claramente seus serviços, portfólio e proposta de valor.
+2.  Manter um altíssimo padrão de performance e SEO para garantir boa visibilidade orgânica.
+3.  Oferecer suporte a múltiplos idiomas (Português e Inglês) de forma nativa.
+4.  Ser facilmente escalável para futuras adições, como um blog.
+
+---
+
+## ✨ A Solução Implementada
+
+Para atender a esses requisitos, o site foi construído com uma arquitetura moderna e focada em componentes.
+
+- **Arquitetura:** O projeto utiliza o App Router do Next.js, facilitando a organização de rotas e o uso de Server Components para performance.
+- **Internacionalização:** A biblioteca `next-intl` foi integrada para gerenciar as traduções, permitindo que todo o conteúdo seja exibido dinamicamente no idioma escolhido pelo usuário.
+- **Microinterações:** Animações sutis foram adicionadas com `framer-motion` para melhorar a experiência do usuário sem penalizar o tempo de carregamento da página.
+- **CI/CD:** O deploy é automatizado através da integração nativa do repositório com a Vercel, garantindo que cada `push` para a branch `main` atualize o site em produção de forma segura e eficiente.
+
+---
+
+## 🚀 Rodando o Projeto Localmente
+
+Siga os passos abaixo para executar o projeto em seu ambiente de desenvolvimento.
+
+**1. Clone o repositório:**
 ```bash
-# 1. Clone este repositório
-git clone [https://github.com/DevBielCastro/neurostack-site-pessoal](https://github.com/DevBielCastro/neurostack-site-pessoal)
-
-# 2. Navegue até a pasta do projeto
+git clone [https://github.com/DevBielCastro/neurostack-site-pessoal.git](https://github.com/DevBielCastro/neurostack-site-pessoal.git)
 cd neurostack-site-pessoal
+2. Instale as dependências:
 
-# 3. Instale as dependências
+Bash
+
 npm install
+# ou
+pnpm install
+3. Crie o arquivo de variáveis de ambiente:
+Copie o arquivo .env.example para um novo arquivo chamado .env.local e preencha as variáveis, se necessário.
 
-# 4. Inicie o servidor de desenvolvimento
+4. Execute o servidor de desenvolvimento:
+
+Bash
+
 npm run dev
+# ou
+pnpm dev
+Abra http://localhost:3000 no seu navegador para ver o resultado.
 
-# 5. Acesse a aplicação em http://localhost:3000
-```
+Scripts Úteis
+npm run dev: Inicia o servidor em modo de desenvolvimento.
 
----
+npm run build: Compila o projeto para produção.
 
-### 🧠 Aprendizados e Desafios
+npm run start: Inicia um servidor de produção após o build.
 
-Desenvolver o site da Neurostack foi além de um projeto técnico; foi o desafio de traduzir uma identidade de marca e uma visão de negócios em uma experiência digital.
+npm run lint: Executa o linter para verificar a qualidade do código.
 
-Os principais aprendizados foram:
--   **Foco em UI/UX:** A preocupação constante em criar uma interface que fosse não apenas bonita, mas também intuitiva e que comunicasse profissionalismo.
--   **Implementação de i18n:** Aprender a estruturar uma aplicação Next.js para suportar múltiplos idiomas de forma eficiente e escalável foi um grande diferencial.
--   **Animações com Propósito:** Utilizar o Framer Motion para criar animações que melhoram a experiência do usuário, em vez de apenas distrair.
--   **Produto Real:** Gerenciar o ciclo de vida completo de um produto, desde o design no Figma (se aplicável), passando pelo desenvolvimento, até o deploy final e manutenção.
+🗺️ Roadmap de Melhorias
+[ ] Implementar SEO avançado com structured data (JSON-LD).
+
+[ ] Adicionar um blog integrado com um CMS Headless (ex: Strapi, Sanity).
+
+[ ] Escrever testes End-to-End (E2E) com Cypress para garantir a estabilidade das funcionalidades críticas.
+
+📫 Contato
+Gabriel Castro
+
+Email: gabriel.castrogt10@gmail.com
+
+LinkedIn: linkedin.com/in/gabriel-castro-9a9745209
