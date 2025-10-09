@@ -15,7 +15,7 @@ Website corporativo e vitrine de serviços da NeuroStack, desenvolvido com Next.
 
 | **Deploy (Demo)** | **Repositório** |
 |---|---|
-| [cite_start]🌐 [neurostack.com.br](https://www.neurostack.com.br/) [cite: 35] | [cite_start]🔗 [GitHub](https://github.com/DevBielCastro/neurostack-site-pessoal) [cite: 34] |
+| 🌐 [neurostack.com.br](https://www.neurostack.com.br/) | 🔗 [GitHub](https://github.com/DevBielCastro/neurostack-site-pessoal)  |
 
 ---
 
