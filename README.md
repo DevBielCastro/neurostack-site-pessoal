@@ -1,85 +1,134 @@
-# 🌐 Site Institucional da Neurostack
+# NeuroStack — Site Institucional
 
-# Site Institucional - NeuroStack
+Website corporativo e vitrine de serviços da **NeuroStack**, desenvolvido com **Next.js**, **TypeScript** e **Tailwind CSS**, com foco em performance, responsividade e boa experiência de navegação.
 
-Website corporativo e vitrine de serviços da NeuroStack, desenvolvido com Next.js, TypeScript e Tailwind CSS para máxima performance e uma experiência de usuário moderna.
-
-<div align="center">
-
-![Next.js](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-</div>
-
-| **Deploy (Demo)** | **Repositório** |
-|---|---|
-| 🌐 [neurostack.com.br](https://www.neurostack.com.br/) | 🔗 [GitHub](https://github.com/DevBielCastro/neurostack-site-pessoal)  |
+🔗 **Demo:** https://neurostack-site-pessoal.vercel.app  
+🌐 **Site oficial:** https://www.neurostack.com.br  
+📦 **Repositório:** https://github.com/DevBielCastro/neurostack-site-pessoal
 
 ---
 
-## 🎯 Sobre o Projeto
-
-O objetivo deste projeto foi criar uma vitrine digital completa para a NeuroStack. [cite_start]A necessidade era desenvolver um website que não apenas apresentasse os serviços e o portfólio da empresa, mas que também servisse como uma ferramenta eficaz para a captação de clientes[cite: 34].
-
-[cite_start]O resultado é uma plataforma moderna, rápida e totalmente responsiva, que comunica a identidade visual e os valores da marca de forma clara e profissional[cite: 34].
-
----
-
-## ✨ Tecnologias Utilizadas
-
-[cite_start]Este projeto foi construído utilizando as seguintes tecnologias de ponta[cite: 36]:
-
-* **Next.js:** Framework React para construção de aplicações web de alta performance.
-* **React:** Biblioteca para criar interfaces de usuário componentizadas e interativas.
-* **TypeScript:** Adiciona tipagem estática ao JavaScript, aumentando a segurança e a manutenibilidade do código.
-* **Tailwind CSS:** Framework CSS utility-first para estilização rápida e responsiva.
-* **Framer Motion:** Para animações e microinterações fluidas.
-* **Vercel:** Plataforma de deploy otimizada para projetos Next.js, com integração contínua (CI/CD).
+## 📌 Sumário
+- [Sobre](#-sobre)
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias](#-tecnologias)
+- [Como rodar localmente](#-como-rodar-localmente)
+- [Scripts](#-scripts)
+- [Estrutura do projeto](#-estrutura-do-projeto)
+- [Deploy](#-deploy)
+- [Contato](#-contato)
 
 ---
 
-## 🚀 Funcionalidades
+## 🧠 Sobre
+Este projeto foi criado para ser uma **vitrine digital completa** da NeuroStack, apresentando serviços, portfólio e posicionamento da marca de forma clara e profissional.
 
-* [cite_start]**Design Totalmente Responsivo:** Experiência de usuário consistente em desktops, tablets e celulares[cite: 34].
-* **Arquitetura Baseada em Componentes:** Código limpo e reutilizável.
-* **Otimizado para SEO:** Estrutura semântica e boas práticas para melhor rankeamento em buscadores.
-* **Performance Elevada:** Carregamento rápido graças à otimização de imagens e estratégias de renderização do Next.js.
-
----
-
-## ⚙️ Rodando o Projeto Localmente
-
-Para executar este projeto em seu ambiente de desenvolvimento, siga os passos abaixo:
-
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/DevBielCastro/neurostack-site-pessoal.git](https://github.com/DevBielCastro/neurostack-site-pessoal.git)
-    ```
-
-2.  **Navegue até a pasta do projeto:**
-    ```bash
-    cd neurostack-site-pessoal
-    ```
-
-3.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
-
-4.  **Execute o servidor de desenvolvimento:**
-    ```bash
-    npm run dev
-    ```
-
-5.  Abra `http://localhost:3000` no seu navegador.
+O foco é entregar uma experiência:
+- **Moderna e responsiva**
+- **Rápida e bem otimizada**
+- **Com boa base para SEO**
+- **Fácil de manter e evoluir** (arquitetura em componentes)
 
 ---
 
-## 📫 Contato
+## ✅ Funcionalidades
+- **Layout 100% responsivo** (desktop / tablet / mobile)
+- **Componentização** para reutilização e manutenção simples
+- **Otimizações do Next.js** (assets, imagens, build)
+- **Boas práticas de SEO** (estrutura semântica e performance)
+- **Animações e microinterações** (quando aplicável)
 
-**Gabriel Castro**
+---
 
-* [cite_start]**Email:** gabriel.castrogt10@gmail.com [cite: 2]
-* **LinkedIn:** [linkedin.com/in/gabriel-castro-9a9745209](https://www.linkedin.com/in/gabriel-castro-9a9745209/)
+## 🛠️ Tecnologias
+- **Next.js** — framework React para aplicações web modernas
+- **React** — biblioteca de UI
+- **TypeScript** — tipagem e confiabilidade
+- **Tailwind CSS** — estilização utility-first
+- **Framer Motion** — animações
+- **Vercel** — deploy e CI/CD
+
+---
+
+## 🚀 Como rodar localmente
+
+### Pré-requisitos
+- Node.js (recomendado: LTS)
+- npm (ou yarn/pnpm)
+
+### Passo a passo
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/DevBielCastro/neurostack-site-pessoal.git
+
+Acesse a pasta do projeto:
+
+cd neurostack-site-pessoal
+
+Instale as dependências:
+
+npm install
+
+Rode o servidor de desenvolvimento:
+
+npm run dev
+
+Abra no navegador:
+
+http://localhost:3000
+
+📜 Scripts
+
+npm run dev — roda em modo desenvolvimento
+
+npm run build — gera build de produção
+
+npm run start — inicia o servidor após build
+
+npm run lint — checagem de lint
+
+🧱 Estrutura do projeto
+
+(Baseada na estrutura atual do repositório)
+
+src/app/ — rotas e páginas (App Router)
+
+public/ — arquivos estáticos (imagens, ícones etc.)
+
+tailwind.config.ts — configuração do Tailwind
+
+next.config.js — configuração do Next.js
+
+.eslintrc.json — regras de lint
+
+☁️ Deploy
+
+Este projeto pode ser publicado facilmente na Vercel.
+
+Sugestão:
+
+Importar o repositório na Vercel
+
+Framework preset: Next.js
+
+Build command: npm run build
+
+Output: padrão do Next.js
+
+📫 Contato
+
+Gabriel Castro
+
+Email: gabriel.castrogt10@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/gabriel-castro-9a9745209/
+
+
+Se você quiser, eu também posso:
+- adicionar **badges bonitos** (build, license, vercel, etc.)
+- colocar **prints/gifs** do site (fica muito mais profissional)
+- criar uma seção **“Roadmap”** (melhor pra portfólio)
+- e padronizar seus commits com **Conventional Commits**
+
+Só me diga: você quer um README mais “corporativo” (bem clean) ou mais “portfólio” (com imagens, gifs e destaque de resultados)?
+::contentReference[oaicite:2]{index=2}
