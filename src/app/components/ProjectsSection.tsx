@@ -4,118 +4,96 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 
-// (MODIFICADO) Estrutura de dados agora inclui status e liveUrl opcional
 const projects = [
   {
-    title: "Website Institucional – Gabriel Mário Advogados",
-    summary: "Site institucional responsivo, com foco em autoridade e captação de contato.",
-    tags: ["Website", "Identidade Digital"],
-    liveUrl: "https://www.gabrielmarioadv.com.br/",
-    caseUrl: "/cases/gabriel-mario-advogados", 
-    thumbnail: "/assets/project-gabriel-mario.jpg",
-    status: null,
+    title: "SistemaJAB — Gestão administrativa e comercial",
+    summary: "Produto NeuroStack para centralizar clientes, vendas, estoque, financeiro, relatórios e automações em uma operação mais clara e controlável.",
+    tags: ["Produto", "Gestão", "Automação"],
+    thumbnail: "/assets/produto-sistemas.png",
+    status: "Produto principal",
   },
   {
-    title: "Website Profissional – Roberlanio Advogados",
-    summary: "Site otimizado para SEO local e organização de áreas de atuação.",
-    tags: ["Website", "SEO Local"],
-    liveUrl: "https://www.roberlanioadv.com.br/",
-    caseUrl: "/cases/roberlanio-advogados",
-    thumbnail: "/assets/project-roberlanio.jpg",
-    status: null,
-  },
-  {
-    title: "Portal Educacional – Supletivo JP",
-    summary: "Site com estrutura institucional e área de contato/matrícula, orientado à conversão.",
-    tags: ["Website", "Conversão"],
-    liveUrl: "https://www.supletivojp.com.br/",
-    caseUrl: "/cases/supletivo-jp",
-    thumbnail: "/assets/project-supletivo-jp.jpg",
-    status: null,
-  },
-  {
-    title: "Garçom Digital — Cardápios & Gestão para Restaurantes",
-    summary: "SaaS completo: cardápios online, pedidos, gestão financeira e painel administrativo.",
-    tags: ["Produto", "SaaS", "FoodTech"],
-    liveUrl: null, // (CORRIGIDO) liveUrl como null remove o botão "Ver Site"
-    caseUrl: "/cases/garcom-digital",
+    title: "Garçom Digital — Atendimento e pedidos para restaurantes",
+    summary: "Solução para modernizar atendimento, organizar pedidos e reduzir falhas em operações de food service.",
+    tags: ["FoodTech", "Pedidos", "SaaS"],
     thumbnail: "/assets/project-garcom-digital.jpg",
-    status: "Em Desenvolvimento", // (NOVO) Adicionado o status
+    status: "Em evolução",
+  },
+  {
+    title: "Sites institucionais focados em conversão",
+    summary: "Projetos de presença digital para empresas que precisam apresentar serviços com clareza, autoridade e canal de contato comercial.",
+    tags: ["Website", "Autoridade", "Conversão"],
+    thumbnail: "/assets/project-gabriel-mario.jpg",
+    status: "Publicado",
+  },
+  {
+    title: "Portais de captação e atendimento",
+    summary: "Estruturas digitais para organizar informações, orientar visitantes e facilitar solicitações de contato ou matrícula.",
+    tags: ["Portal", "Captação", "Atendimento"],
+    thumbnail: "/assets/project-supletivo-jp.jpg",
+    status: "Publicado",
   },
 ];
 
-// --- Componente Principal ---
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="bg-ns-bg py-20 md:py-32">
+    <section id="projects" className="bg-ns-card/30 py-20 md:py-32 border-y border-white/10">
       <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        
-        {/* Cabeçalho */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-            Nossos Projetos
+            Construímos produtos e projetos para resolver <span className="text-ns-primary">necessidades reais</span>
           </h2>
           <p className="mt-6 text-lg md:text-xl text-ns-text/80 leading-relaxed">
-            Soluções reais, resultados mensuráveis. Veja como ajudamos empresas a transformar a presença digital, automatizar processos e aumentar a receita.
+            Nosso foco é transformar operação, presença digital e processos em ferramentas práticas para empresas venderem melhor e administrarem com mais segurança.
           </p>
         </div>
 
-        {/* Grelha de Projetos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              className="bg-ns-card rounded-2xl overflow-hidden border border-ns-card/50 group flex flex-col"
+              className="bg-ns-card rounded-3xl overflow-hidden border border-white/10 group flex flex-col hover:border-ns-primary/60 transition-all duration-300"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               viewport={{ once: true }}
             >
-              {/* Imagem de fundo real com texto sobreposto */}
-              <div className="relative overflow-hidden aspect-video w-full flex items-center justify-center p-8 text-center">
-                  <Image
-                    src={project.thumbnail}
-                    alt={`Thumbnail do projeto ${project.title}`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
-                  <div className="relative z-20">
-                    <h4 className="font-bold text-3xl text-white mb-2">{project.title.split('–')[0]}</h4>
-                    <p className="text-white/80">{project.tags.join(' • ')}</p>
-                  </div>
+              <div className="relative overflow-hidden aspect-video w-full flex items-center justify-center p-8 text-center bg-ns-bg">
+                <Image
+                  src={project.thumbnail}
+                  alt={`Thumbnail do projeto ${project.title}`}
+                  fill
+                  className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent z-10" />
+                <div className="relative z-20 self-end">
+                  <p className="text-ns-primary font-bold text-xs uppercase tracking-[0.25em] mb-2">{project.tags.join(' • ')}</p>
+                  <h4 className="font-bold text-2xl md:text-3xl text-white">{project.title.split('—')[0]}</h4>
+                </div>
               </div>
               
               <div className="p-8 flex flex-col flex-grow">
-                {/* (NOVO) Container para o título e o selo de status */}
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex flex-wrap items-center gap-3 mb-3">
                   <h3 className="font-bold text-xl text-white">{project.title}</h3>
-                  {project.status && (
-                    <span className="bg-ns-primary/10 text-ns-primary text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                      {project.status}
-                    </span>
-                  )}
+                  <span className="bg-ns-primary/10 text-ns-primary text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap border border-ns-primary/20">
+                    {project.status}
+                  </span>
                 </div>
 
-                <p className="text-ns-text/80 mb-6 flex-grow">{project.summary}</p>
-                <div className="flex items-center gap-4 mt-auto">
-                  {/* (CORRIGIDO) O botão "Ver Site" só aparece se 'liveUrl' existir */}
-                  {project.liveUrl && (
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="bg-ns-primary text-ns-bg font-bold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity">
-                      Ver Site
-                    </a>
-                  )}
-                   <Link href={project.caseUrl} className="font-semibold text-white group-hover:text-ns-primary transition-colors flex items-center gap-2">
-                     Ver Case <ArrowRight size={16} />
-                   </Link>
-                </div>
+                <p className="text-ns-text/80 mb-6 flex-grow leading-relaxed">{project.summary}</p>
+                <a
+                  href="https://wa.me/558391533883?text=Ol%C3%A1%2C%20vi%20os%20projetos%20da%20NeuroStack%20e%20quero%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20minha%20empresa."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-white group-hover:text-ns-primary transition-colors flex items-center gap-2 mt-auto"
+                >
+                  Quero algo assim <ArrowRight size={16} />
+                </a>
               </div>
             </motion.div>
           ))}
         </div>
-        
       </div>
     </section>
   );
