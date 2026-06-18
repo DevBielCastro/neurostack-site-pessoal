@@ -60,7 +60,7 @@ export default function ProductsSection() {
 
   return (
     <motion.section
-      id="solutions"
+      id="products"
       ref={ref}
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
