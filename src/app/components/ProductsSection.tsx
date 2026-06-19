@@ -4,7 +4,35 @@ import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+const products = [
+  {
+    name: 'Sistemas administrativos sob medida',
+    description: 'Sistemas criados a partir da rotina real da empresa para organizar clientes, vendas, estoque, relatórios, permissões e processos internos.',
+    imageSrc: '/assets/produto-sistemas.png',
+    href: '#projects',
+  },
+  {
+    name: 'Garçom Digital',
+    description: 'Solução para restaurantes modernizarem pedidos, cardápio digital e gestão operacional com mais velocidade e menos erro no atendimento.',
+    imageSrc: '/assets/produto-garcom-digital.png',
+    href: '#projects',
+  },
+  {
+    name: 'Automação de processos',
+    description: 'Fluxos digitais para reduzir retrabalho, padronizar atendimento, acompanhar vendas e conectar informações que antes ficavam espalhadas.',
+    imageSrc: '/assets/produto-sistemas.png',
+    href: '#services',
+  },
+  {
+    name: 'Sites e Landing Pages',
+    description: 'Presença digital com posicionamento, copy e estrutura de conversão para gerar contato qualificado, autoridade e oportunidades comerciais.',
+    imageSrc: '/assets/produto-landingpage.png',
+    href: '#contact',
+  },
+];
 
 export default function ProductsSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000, stopOnInteraction: false })]);
@@ -29,14 +57,6 @@ export default function ProductsSection() {
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
 
-  // Lembrete: Verifique se a extensão (.png ou .jpg) aqui corresponde aos seus arquivos reais.
-  const products = [
-    { name: 'E-commerce', description: 'Lojas virtuais completas, otimizadas para performance, conversão e prontas para escalar suas vendas.', imageSrc: '/assets/produto-ecommerce.png' },
-    { name: 'Landing Pages', description: 'Páginas de alto impacto visual e totalmente focadas em capturar leads e impulsionar suas campanhas de marketing.', imageSrc: '/assets/produto-landingpage.png' },
-    { name: 'Sistemas Sob Medida', description: 'Soluções de software robustas, criadas do zero para automatizar processos e otimizar a operação da sua empresa.', imageSrc: '/assets/produto-sistemas.png' },
-    { name: 'Garçom Digital', description: 'Modernize o atendimento do seu restaurante com pedidos e pagamentos via QR Code, diretamente da mesa do cliente.', imageSrc: '/assets/produto-garcom-digital.png' },
-  ];
-
   return (
     <motion.section
       id="products"
@@ -47,15 +67,18 @@ export default function ProductsSection() {
       className="container py-20 md:py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="text-center mb-12 max-w-3xl mx-auto">
+        <span className="inline-block text-sm font-bold uppercase tracking-[0.25em] text-ns-primary mb-4">
+          Produtos e soluções
+        </span>
         <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-          Soluções Digitais <span className="text-ns-primary">para Cada Necessidade</span>
+          Tecnologia para tirar sua operação do improviso
         </h2>
         <p className="mt-4 text-lg text-ns-text/80">
-          Do conceito à realidade, criamos produtos que impulsionam o crescimento do seu negócio.
+          Cada solução é pensada para transformar processos confusos em fluxos digitais claros, mensuráveis e prontos para crescer.
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-ns-card bg-ns-bg shadow-2xl" ref={emblaRef}>
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-ns-card/60 shadow-2xl" ref={emblaRef}>
         <div className="flex">
           {products.map((product) => (
             <div className="flex-shrink-0 flex-grow-0 basis-full min-w-0" key={product.name}>
@@ -67,21 +90,22 @@ export default function ProductsSection() {
                   transition={{ duration: 0.5 }}
                   className="text-center md:text-left"
                 >
-                  <h3 className="text-3xl font-bold text-white mb-3">{product.name}</h3>
-                  <p className="text-lg text-ns-text/80">{product.description}</p>
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{product.name}</h3>
+                  <p className="text-lg text-ns-text/80 leading-relaxed mb-6">{product.description}</p>
+                  <a href={product.href} className="inline-flex items-center gap-2 text-ns-primary font-bold hover:text-white transition-colors">
+                    Entender solução <ArrowRight size={18} />
+                  </a>
                 </motion.div>
 
-                {/* (ALTERADO) Container da imagem agora centraliza e limita o tamanho */}
                 <div className="order-first md:order-last flex items-center justify-center h-full">
-                  <div className="w-full md:w-3/5"> {/* Reduz o tamanho da imagem para 60% em telas maiores */}
+                  <div className="w-full md:w-3/5">
                     <img
                       src={product.imageSrc}
-                      alt={`Imagem do produto ${product.name}`}
-                      className="rounded-xl w-full h-auto object-contain" // Mostra a imagem inteira
+                      alt={`Imagem da solução ${product.name}`}
+                      className="rounded-xl w-full h-auto object-contain"
                     />
                   </div>
                 </div>
-
               </div>
             </div>
           ))}
@@ -89,12 +113,12 @@ export default function ProductsSection() {
       </div>
       
       <div className="flex justify-center gap-3 mt-8">
-        {products.map((_, index) => (
+        {products.map((product, index) => (
           <button
-            key={index}
+            key={product.name}
             onClick={() => emblaApi?.scrollTo(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${ index === selectedIndex ? 'bg-ns-primary w-6' : 'bg-ns-card' }`}
-            aria-label={`Ir para o produto ${index + 1}`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${ index === selectedIndex ? 'bg-ns-primary w-8' : 'bg-ns-card' }`}
+            aria-label={`Ir para a solução ${index + 1}`}
           />
         ))}
       </div>

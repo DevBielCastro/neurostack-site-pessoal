@@ -16,8 +16,25 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Neurostack | Construindo o Futuro Digital",
-  description: "Sites, sistemas e soluções de software que unem design inovador com tecnologia de ponta.",
+  title: "NeuroStack | Automação, Sistemas e Fluxos Administrativos",
+  description:
+    "A NeuroStack cria sistemas, automações e soluções digitais para empresas que precisam controlar vendas, clientes, estoque e processos administrativos com mais clareza e produtividade.",
+  keywords: [
+    "NeuroStack",
+    "case JAB",
+    "automação empresarial",
+    "sistemas sob medida",
+    "controle de vendas",
+    "controle de estoque",
+    "João Pessoa",
+  ],
+  openGraph: {
+    title: "NeuroStack | Soluções digitais para problemas reais das empresas",
+    description:
+      "Automatizamos processos, organizamos dados e criamos sistemas para melhorar o fluxo administrativo da sua empresa.",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className="overflow-x-hidden">
+    <html lang="pt-br" className="overflow-x-hidden scroll-smooth">
       <body className={`${montserrat.variable} ${openSans.variable} bg-ns-bg text-ns-text font-body`}>
         <Header />
         {children}
